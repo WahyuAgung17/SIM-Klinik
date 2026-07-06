@@ -1,0 +1,147 @@
+.soft-card,
+.card{
+background:var(--surface);
+border-radius:var(--radius-lg);
+border:1px solid rgba(20,35,31,.06);
+box-shadow:var(--shadow);
+transition:.25s;
+}
+
+.soft-card:hover{
+transform:translateY(-4px);
+box-shadow:var(--shadow-hover);
+}
+
+.card-header{
+font-family:var(--font-display);
+font-weight:600;
+}
+
+/* === Tombol === */
+.btn{
+border-radius:var(--radius-sm);
+font-weight:600;
+padding:11px 20px;
+font-size:14px;
+border:none;
+}
+
+.btn-primary{
+background:var(--pine);
+border-color:var(--pine);
+}
+.btn-primary:hover,
+.btn-primary:focus{
+background:var(--pine-dark);
+border-color:var(--pine-dark);
+}
+
+.btn-success{
+background:var(--leaf);
+border-color:var(--leaf);
+}
+
+.btn-warning{
+background:var(--amber);
+border-color:var(--amber);
+color:#fff;
+}
+.btn-warning:hover{
+color:#fff;
+filter:brightness(.92);
+}
+
+.btn-danger{
+background:var(--brick);
+border-color:var(--brick);
+}
+
+.btn-info{
+background:var(--pine-dark);
+border-color:var(--pine-dark);
+color:#fff;
+}
+.btn-info:hover{
+color:#fff;
+}
+
+.btn-outline-primary{
+color:var(--pine);
+border:1.5px solid var(--pine);
+background:transparent;
+}
+.btn-outline-primary:hover{
+background:var(--pine);
+color:#fff;
+}
+
+/* === Form === */
+.form-control,
+.form-select{
+border-radius:var(--radius-sm);
+padding:11px 14px;
+border:1.5px solid #E1E8E4;
+font-size:14px;
+}
+.form-control:focus,
+.form-select:focus{
+border-color:var(--pine);
+box-shadow:0 0 0 3px var(--pine-soft);
+}
+
+label,
+.form-label{
+font-weight:600;
+font-size:13.5px;
+color:var(--ink);
+margin-bottom:6px;
+}
+
+/* === Tabel === */
+.table{
+vertical-align:middle;
+}
+
+.table thead th{
+font-weight:600;
+font-size:12.5px;
+text-transform:uppercase;
+letter-spacing:.04em;
+color:var(--muted);
+border-bottom:2px solid var(--pine-soft);
+background:transparent;
+}
+
+.table tbody tr:hover{
+background:var(--pine-soft);
+}
+
+/* === Badge status === */
+.badge{
+font-weight:600;
+font-size:12px;
+padding:6px 12px;
+border-radius:999px;
+}
+.badge.bg-success{
+background:var(--leaf-soft) !important;
+color:var(--leaf) !important;
+}
+.badge.bg-danger{
+background:var(--brick-soft) !important;
+color:var(--brick) !important;
+}
+.badge.bg-warning{
+background:var(--gold-soft) !important;
+color:var(--gold) !important;
+}
+.badge.bg-primary{
+background:var(--pine-soft) !important;
+color:var(--pine) !important;
+}
+
+/* === Teks bantu === */
+.text-primary{ color:var(--pine) !important; }
+.text-success{ color:var(--leaf) !important; }
+.text-warning{ color:var(--amber) !important; }
+.text-danger{ color:var(--brick) !important; }

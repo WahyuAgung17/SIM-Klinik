@@ -1,0 +1,107 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:var(--font-body);
+background:var(--paper);
+color:var(--ink);
+font-size:15px;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-family:var(--font-display);
+letter-spacing:-0.01em;
+}
+
+/* Angka & kode (no. kunjungan, tanggal, id) pakai mono - kesan "rekam medis" */
+.text-mono,
+.no-record{
+font-family:var(--font-mono);
+letter-spacing:-0.02em;
+}
+
+/* === Signature element: garis "pulse" (denyut) ===
+   Dipakai sebagai pemisah di bawah judul kartu/halaman -
+   metafora visual dari "tanda vital", bukan hiasan acak. */
+.pulse-rule{
+display:block;
+width:64px;
+height:10px;
+margin:6px 0 0;
+background:
+  linear-gradient(var(--amber),var(--amber)) no-repeat;
+background-size:100% 2px;
+background-position:center;
+position:relative;
+}
+.pulse-rule::before{
+content:'';
+position:absolute;
+inset:0;
+background-image:
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 10'%3E%3Cpath d='M0 5 H22 L27 1 L32 9 L37 1 L42 5 H64' fill='none' stroke='%23E2843D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+background-repeat:no-repeat;
+background-size:64px 10px;
+}
+
+/* === Sidebar === */
+.sidebar{
+position:fixed;
+width:264px;
+height:100vh;
+left:0;
+top:0;
+background:var(--sidebar);
+overflow:auto;
+border-right:1px solid rgba(255,255,255,.05);
+}
+
+.main-content{
+margin-left:264px;
+min-height:100vh;
+}
+
+.sidebar-link{
+display:flex;
+align-items:center;
+color:var(--sidebar-text);
+padding:10px 14px;
+border-radius:var(--radius-sm);
+font-weight:500;
+font-size:14px;
+border-left:3px solid transparent;
+transition:.2s;
+}
+
+.sidebar-link:hover{
+background:var(--sidebar-hover);
+color:#fff;
+}
+
+.sidebar-link.active{
+background:var(--sidebar-hover);
+color:#fff;
+border-left-color:var(--amber);
+}
+
+/* === Navbar === */
+.navbar{
+background:var(--surface);
+padding:16px 28px;
+box-shadow:var(--shadow);
+border-bottom:1px solid rgba(20,35,31,.05);
+}
+
+@media(max-width:992px){
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+}
+.main-content{
+margin-left:0;
+}
+}

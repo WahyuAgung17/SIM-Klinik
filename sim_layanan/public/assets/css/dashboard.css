@@ -1,0 +1,57 @@
+.dashboard-card{
+border:none;
+border-radius:var(--radius-lg);
+overflow:hidden;
+position:relative;
+color:#fff;
+min-height:185px;
+transition:.3s;
+}
+
+.dashboard-card:hover{
+transform:translateY(-6px);
+box-shadow:var(--shadow-hover);
+}
+
+.dashboard-card .card-body{
+padding:26px;
+}
+
+.dashboard-card .icon{
+position:absolute;
+right:18px;
+top:18px;
+font-size:70px;
+opacity:.16;
+}
+
+.dashboard-card h6{
+opacity:.85;
+font-weight:600;
+font-size:13px;
+text-transform:uppercase;
+letter-spacing:.04em;
+}
+
+.dashboard-card h2{
+font-family:var(--font-display);
+font-size:40px;
+font-weight:600;
+}
+
+/* Gradasi khas "pine & paper" - bukan biru/hijau/kuning/merah Bootstrap standar */
+.bg-primary-soft{
+background:linear-gradient(135deg,var(--pine),#2E9678);
+}
+
+.bg-success-soft{
+background:linear-gradient(135deg,var(--leaf),#5FB37F);
+}
+
+.bg-warning-soft{
+background:linear-gradient(135deg,var(--amber),#F0AA6B);
+}
+
+.bg-danger-soft{
+background:linear-gradient(135deg,var(--brick),#DC7168);
+}

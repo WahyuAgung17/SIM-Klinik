@@ -1,0 +1,56 @@
+:root{
+
+    /* === Warna dasar: "pine & paper" — palet klinik yang tenang, ===
+       === bukan biru admin-panel generik ===                      */
+    --ink:#14231F;
+    --muted:#5C6F68;
+    --paper:#F1F5F1;
+    --surface:#FFFFFF;
+
+    /* Pine (warna utama) - hijau tua tenang, kesan profesional & menyembuhkan */
+    --pine:#1F6F5C;
+    --pine-dark:#164F41;
+    --pine-soft:#E3EEE9;
+
+    /* Amber (aksen) - dipakai sangat terbatas: CTA utama & signature pulse-line */
+    --amber:#E2843D;
+    --amber-soft:#FBEADA;
+
+    /* Status */
+    --leaf:#3E8F5E;
+    --leaf-soft:#E1F0E6;
+    --gold:#C68A2E;
+    --gold-soft:#F5E9D2;
+    --brick:#C1473B;
+    --brick-soft:#F7E2DF;
+
+    /* Sidebar - hijau tua nyaris hitam, bukan abu-abu slate generik */
+    --sidebar:#0F221D;
+    --sidebar-hover:#17342C;
+    --sidebar-text:#B9CBC4;
+
+    /* Alias lama supaya kompatibel dengan class Bootstrap existing */
+    --primary:var(--pine);
+    --primary-hover:var(--pine-dark);
+    --success:var(--leaf);
+    --warning:var(--gold);
+    --danger:var(--brick);
+    --background:var(--paper);
+    --card:var(--surface);
+    --text:var(--ink);
+
+    /* Tipografi */
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Inter', -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+
+    /* Bentuk & bayangan */
+    --radius-lg:18px;
+    --radius:12px;
+    --radius-sm:8px;
+
+    --shadow:
+        0 10px 30px rgba(15,34,29,.08);
+    --shadow-hover:
+        0 16px 40px rgba(15,34,29,.14);
+}
