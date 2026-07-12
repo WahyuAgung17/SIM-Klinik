@@ -50,6 +50,11 @@ Route::post('/pesan-masuk', [PesanMasukController::class, 'store'])
         'index', 'create', 'store', 'show',
     ]);
 
+    Route::post(
+    'kunjungan/{kunjungan}/checkin',
+    [KunjunganController::class, 'checkin']
+    )->name('kunjungan.checkin');
+
     // Pemeriksaan (Dokter)
     Route::prefix('pemeriksaan')->name('pemeriksaan.')->group(function () {
         Route::get('/', [PemeriksaanController::class, 'index'])->name('index');

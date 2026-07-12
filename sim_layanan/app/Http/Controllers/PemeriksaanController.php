@@ -8,6 +8,7 @@ use App\Models\Layanan;
 use App\Http\Requests\StorePemeriksaanRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Models\ActivityLog;
 
 class PemeriksaanController extends Controller
 {
@@ -67,6 +68,12 @@ class PemeriksaanController extends Controller
 
         // Pemeriksaan selesai -> lanjut ke tahap pembayaran (modul Anggota 4)
         $kunjungan->update(['status_kunjungan' => 'menunggu_pembayaran']);
+
+        ActivityLog::create([
+            'module' => 'Pemeriksaan',
+            'action' => 'Selesai',
+            'description' => 'Pemeriksaan pasien "' . $kunjungan->pasien->nama . '" telah selesai',
+        ]);
 
         return redirect()
             ->route('kunjungan.show', $kunjungan)

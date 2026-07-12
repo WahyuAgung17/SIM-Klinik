@@ -7,6 +7,7 @@ use App\Models\Poli;
 use App\Http\Requests\StoreLayananRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Models\ActivityLog;
 
 class LayananController extends Controller
 {
@@ -41,11 +42,19 @@ class LayananController extends Controller
     }
 
     public function store(StoreLayananRequest $request): RedirectResponse
-    {
-        Layanan::create($request->validated());
+{
+    $layanan = Layanan::create($request->validated());
 
-        return redirect()->route('layanan.index')->with('success', 'Layanan berhasil ditambahkan.');
-    }
+    ActivityLog::create([
+        'module' => 'Layanan',
+        'action' => 'Tambah',
+        'description' => 'Menambahkan layanan "' . $layanan->nama_layanan . '"',
+    ]);
+
+    return redirect()
+        ->route('layanan.index')
+        ->with('success', 'Layanan berhasil ditambahkan.');
+}
 
     public function edit(Layanan $layanan): View
     {
@@ -55,10 +64,18 @@ class LayananController extends Controller
     }
 
     public function update(StoreLayananRequest $request, Layanan $layanan): RedirectResponse
-    {
-        $layanan->update($request->validated());
+{
+    $layanan->update($request->validated());
 
-        return redirect()->route('layanan.index')->with('success', 'Layanan berhasil diperbarui.');
-    }
+    ActivityLog::create([
+        'module' => 'Layanan',
+        'action' => 'Edit',
+        'description' => 'Mengubah layanan "' . $layanan->nama_layanan . '"',
+    ]);
+
+    return redirect()
+        ->route('layanan.index')
+        ->with('success', 'Layanan berhasil diperbarui.');
+}
 
 }

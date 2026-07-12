@@ -28,8 +28,8 @@
 
             <li class="nav-item">
 
-                <a href="{{ url('/') }}"
-                   class="sidebar-link {{ request()->is('/') ? 'active' : '' }}">
+                <a href="{{ route('dashboard') }}"
+                    class="sidebar-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
 
                     <i class="bi bi-grid-fill me-2"></i>
 
