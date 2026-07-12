@@ -9,6 +9,7 @@ use App\Models\Dokter;
 use App\Http\Requests\StoreKunjunganRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Models\ActivityLog;
 
 class KunjunganController extends Controller
 {
@@ -50,6 +51,12 @@ class KunjunganController extends Controller
 
         $kunjungan = Kunjungan::create($data);
 
+        ActivityLog::create([
+            'module' => 'Kunjungan',
+            'action' => 'Tambah',
+            'description' => 'Mendaftarkan kunjungan pasien "' . $kunjungan->pasien->nama . '"',
+        ]);
+
         return redirect()
             ->route('kunjungan.show', $kunjungan)
             ->with('success', "Pendaftaran berhasil. No. Kunjungan: {$kunjungan->no_kunjungan}");
@@ -76,6 +83,12 @@ class KunjunganController extends Controller
         }
 
         $kunjungan->update(['status_kunjungan' => 'menunggu_pemeriksaan']);
+
+        ActivityLog::create([
+            'module' => 'Kunjungan',
+            'action' => 'Check-in',
+            'description' => 'Check-in pasien "' . $kunjungan->pasien->nama . '"',
+        ]);
 
         return redirect()
             ->route('kunjungan.show', $kunjungan)

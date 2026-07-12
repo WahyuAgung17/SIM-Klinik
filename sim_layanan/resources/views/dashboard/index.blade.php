@@ -108,28 +108,83 @@
 
     <div class="col-lg-6">
 
-        <div class="card card-dashboard">
+    <div class="card card-dashboard">
 
-            <div class="card-header bg-white border-0">
-                <h5 class="mb-0">
-                    <i class="bi bi-clock-history" style="color:var(--pine);"></i>
-                    Aktivitas Terbaru
-                </h5>
-            </div>
+        <div class="card-header bg-white border-0">
+            <h5 class="mb-0">
+                <i class="bi bi-clock-history" style="color:var(--pine);"></i>
+                Aktivitas Terbaru
+            </h5>
+        </div>
 
-            <div class="card-body text-center py-5">
+        <div class="card-body">
 
-                <i class="bi bi-inbox display-4" style="color:var(--muted);"></i>
+            @forelse($activities as $activity)
 
-                <h5 class="mt-3">
-                    Belum Ada Aktivitas
-                </h5>
+                <div class="d-flex align-items-start mb-3">
 
-                <p class="text-muted mb-0">
-                    Aktivitas terbaru akan muncul di sini setelah data mulai ditambahkan.
-                </p>
+                    <div class="me-3">
 
-            </div>
+                        @switch($activity->module)
+
+                            @case('Poli')
+                                <i class="bi bi-hospital text-primary fs-4"></i>
+                                @break
+
+                            @case('Layanan')
+                                <i class="bi bi-clipboard2-pulse text-success fs-4"></i>
+                                @break
+
+                            @case('Kunjungan')
+                                <i class="bi bi-people text-warning fs-4"></i>
+                                @break
+
+                            @case('Pemeriksaan')
+                                <i class="bi bi-heart-pulse text-danger fs-4"></i>
+                                @break
+
+                            @default
+                                <i class="bi bi-info-circle fs-4"></i>
+
+                        @endswitch
+
+                    </div>
+
+                    <div class="flex-grow-1">
+
+                        <strong>{{ $activity->action }}</strong>
+
+                        <div>{{ $activity->description }}</div>
+
+                        <small class="text-muted">
+                            {{ $activity->created_at->diffForHumans() }}
+                        </small>
+
+                    </div>
+
+                </div>
+
+                @if(!$loop->last)
+                    <hr>
+                @endif
+
+            @empty
+
+                <div class="text-center py-5">
+
+                    <i class="bi bi-inbox display-4 text-muted"></i>
+
+                    <h5 class="mt-3">
+                        Belum Ada Aktivitas
+                    </h5>
+
+                    <p class="text-muted mb-0">
+                        Aktivitas terbaru akan muncul setelah data ditambahkan.
+                    </p>
+
+                </div>
+
+            @endforelse
 
         </div>
 

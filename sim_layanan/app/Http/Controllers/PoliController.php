@@ -6,6 +6,7 @@ use App\Models\Poli;
 use App\Http\Requests\StorePoliRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
+use App\Models\ActivityLog;
 
 class PoliController extends Controller
 {
@@ -30,9 +31,17 @@ class PoliController extends Controller
 
     public function store(StorePoliRequest $request): RedirectResponse
     {
-        Poli::create($request->validated());
+        $poli = Poli::create($request->validated());
 
-        return redirect()->route('poli.index')->with('success', 'Poli berhasil ditambahkan.');
+        ActivityLog::create([
+            'module' => 'Poli',
+            'action' => 'Tambah',
+            'description' => 'Menambahkan poli "' . $poli->nama_poli . '"',
+        ]);
+
+        return redirect()
+            ->route('poli.index')
+            ->with('success', 'Poli berhasil ditambahkan.');
     }
 
     public function edit(Poli $poli): View
@@ -44,7 +53,15 @@ class PoliController extends Controller
     {
         $poli->update($request->validated());
 
-        return redirect()->route('poli.index')->with('success', 'Poli berhasil diperbarui.');
+        ActivityLog::create([
+            'module' => 'Poli',
+            'action' => 'Edit',
+            'description' => 'Mengubah poli "' . $poli->nama_poli . '"',
+        ]);
+
+        return redirect()
+            ->route('poli.index')
+            ->with('success', 'Poli berhasil diperbarui.');
     }
 
 }
