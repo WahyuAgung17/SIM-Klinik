@@ -1,140 +1,67 @@
 @extends('adminlte::page')
 
-@section('title', 'Riwayat Transaksi Pasien')
+@section('title', 'Riwayat Transaksi Lunas')
 
 @section('content_header')
-    <h1>Riwayat Transaksi Pasien</h1>
-@stop
+    <h1>Riwayat Transaksi Lunas Klinik</h1>
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap4.min.css">
+    <style>.action-buttons { white-space: nowrap; }</style>
+@endsection
 
 @section('content')
-
-<div class="card">
-
-    <div class="card-header">
-
-        <h3 class="card-title">
-            Data Transaksi Lunas
-        </h3>
-
-        <div class="card-tools">
-
-            <a href="{{ route('tagihan.index') }}"
-               class="btn btn-secondary btn-sm">
-
-                <i class="fas fa-arrow-left"></i>
-
-                Kembali
-
-            </a>
-
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h3 class="card-title">Arsip Pembayaran Pasien (Lunas)</h3>
         </div>
 
-    </div>
-
-    <div class="card-body">
-
-        <table id="tableRiwayat"
-               class="table table-bordered table-striped">
-
-            <thead>
-
-            <tr>
-
-                <th>No</th>
-
-                <th>Nama Pasien</th>
-<th>No. Rekam Medis</th>
-<th>Tanggal Kunjungan</th>
-<th>Total Biaya</th>
-<th>Tanggal Pembayaran</th>
-
-                <th>Lihat Invoice</th>
-
-            </tr>
-
-            </thead>
-
-            <tbody>
-
-            @foreach($listTagihan as $item)
-
-                <tr>
-
-                    <td>{{ $loop->iteration }}</td>
-
-                    <td>{{ $item->mahasiswa?->nama }}</td>
-
-                    <td>{{ $item->nim }}</td>
-
-                    <td>{{ $item->periode }}</td>
-
-                    <td>
-
-                        Rp {{ number_format($item->total_tagihan,0,',','.') }}
-
-                    </td>
-
-                    <td>
-
-                        {{ $item->paid_at ?? '-' }}
-
-                    </td>
-
-                    <td>
-
-                        <a href="{{ route('tagihan.invoice',$item->id) }}"
-                           class="btn btn-success btn-sm">
-
-                            <i class="fas fa-file-invoice"></i>
-
-                            Lihat Invoice
-
-                        </a>
-
-                    </td>
-
-                </tr>
-
-            @endforeach
-
-            </tbody>
-
-        </table>
-
-        <div class="mt-3">
-
-            {{ $listTagihan->links() }}
-
+        <div class="card-body table-responsive">
+            <table id="tableRiwayat" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>No. Tagihan</th>
+                        <th>Nama Pasien</th>
+                        <th>No. Rekam Medis</th>
+                        <th>Tanggal Lunas</th>
+                        <th>Metode</th>
+                        <th>Total Biaya</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($listTagihan as $item)
+                        <tr>
+                            <td>{{ $item->no_tagihan }}</td>
+                            <td>{{ $item->kunjungan->pasien->nama_pasien ?? '-' }}</td>
+                            <td>{{ $item->kunjungan->pasien->no_rm ?? '-' }}</td>
+                            <td>{{ $item->tanggal_bayar ? \Carbon\Carbon::parse($item->tanggal_bayar)->format('d-m-Y H:i') : '-' }}</td>
+                            <td><span class="badge badge-info">{{ $item->metode_pembayaran ?? 'Midtrans' }}</span></td>
+                            <td>Rp {{ number_format($item->total_tagihan, 0, ',', '.') }}</td>
+                            <td class="action-buttons text-center">
+                                <a href="{{ url('/detailtagihan/'.$item->id) }}" class="btn btn-sm btn-info">
+                                    <i class="fas fa-eye"></i> Detail
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
-
     </div>
-
-</div>
-
-@stop
+@endsection
 
 @section('js')
-
-<script>
-
-$(function(){
-
-    $('#tableRiwayat').DataTable({
-
-        responsive:true,
-
-        autoWidth:false,
-
-        language:{
-
-            url:'//cdn.datatables.net/plug-ins/1.13.4/i18n/id.json'
-
-        }
-
-    });
-
-});
-
-</script>
-
-@stop
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tableRiwayat').DataTable({
+                responsive: true,
+                language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/id.json' }
+            });
+        });
+    </script>
+@endsection

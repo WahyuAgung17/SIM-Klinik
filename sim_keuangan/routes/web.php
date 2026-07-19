@@ -1,96 +1,32 @@
 <?php
 
-use App\Http\Controllers\DosenController;
-use App\Http\Controllers\DosenWaliMahasiswaController;
-use App\Http\Controllers\MahasiswaController;
-use App\Http\Controllers\MataKuliahController;
-use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TagihanController;
 
-Route::get("/", [MahasiswaController::class, "index"]);
+Route::get('/', [TagihanController::class, 'dashboard']);
 
-// =========================
-// MAHASISWA
-// =========================
-Route::get("/mahasiswa", [MahasiswaController::class, "tampil"]);
-Route::post("/mahasiswa/simpan", [MahasiswaController::class, "simpan"]);
-Route::get("/mahasiswa/{id}", [MahasiswaController::class, "show"]);
-Route::put("/mahasiswa/{id}", [MahasiswaController::class, "update"]);
-Route::delete("/mahasiswa/hapus/{id}", [MahasiswaController::class, "hapus"]);
+// rute modul Keuangan Kasir
+Route::get('/tagihan', [TagihanController::class, 'index']);
+Route::post('/simpantagihan', [TagihanController::class, 'simpan']);
+Route::post('/bayar/{id}', [TagihanController::class, 'bayar']);
+Route::get('/cetak-invoice/{id}', [TagihanController::class, 'cetakInvoice']);
 
-// =========================
-// DOSEN
-// =========================
-Route::get("/dosen", [DosenController::class, "tampil"])
-    ->name("dosen.tampil");
+// rute cekstatus midtrans
+Route::get('/cekstatus/{id}', [TagihanController::class, 'cekStatus']);
 
-// =========================
-// MATA KULIAH
-// =========================
-Route::get("/mata-kuliah", [MataKuliahController::class, "tampil"])
-    ->name("mata-kuliah.tampil");
-Route::post("/mata-kuliah/simpan", [MataKuliahController::class, "simpan"]);
-Route::get("/mata-kuliah/{id}", [MataKuliahController::class, "show"]);
-Route::put("/mata-kuliah/{id}", [MataKuliahController::class, "update"]);
-Route::delete("/mata-kuliah/hapus/{id}", [MataKuliahController::class, "hapus"]);
+// Rute Midtrans
+Route::post('/midtrans/callback', [TagihanController::class, 'callback']);
 
-// =========================
-// DOSEN WALI
-// =========================
-Route::get("/dosen-wali-mahasiswa", [DosenWaliMahasiswaController::class, "tampil"])
-    ->name("dosen-wali-mahasiswa.tampil");
-Route::post("/dosen-wali-mahasiswa/simpan", [DosenWaliMahasiswaController::class, "simpan"]);
-Route::get("/dosen-wali-mahasiswa/{id}", [DosenWaliMahasiswaController::class, "show"]);
-Route::put("/dosen-wali-mahasiswa/{id}", [DosenWaliMahasiswaController::class, "update"]);
-Route::delete("/dosen-wali-mahasiswa/hapus/{id}", [DosenWaliMahasiswaController::class, "hapus"]);
+// Rute Dashboard
+Route::get('/', [TagihanController::class, 'dashboard'])->name('dashboard');
+Route::get('/tagihan', [TagihanController::class, 'index'])->name('tagihan.index');
+Route::post('/simpantagihan', [TagihanController::class, 'simpan']);
+Route::post('/bayar/{id}', [TagihanController::class, 'bayar']);
+Route::get('/cekstatus/{id}', [TagihanController::class, 'cekStatus']);
+Route::get('/cetak-invoice/{id}', [TagihanController::class, 'cetakInvoice']);
+Route::get('/detailtagihan/{id}', [TagihanController::class, 'detail']);
+Route::get('/invoice/{id}', [TagihanController::class, 'lihatInvoice']);
 
-// =========================
-// SIKEU (TAGIHAN & PEMBAYARAN)
-// =========================
-Route::get("/pay", [PaymentController::class, "tagihan"])
-    ->name("tagihan.index");
+// rute halaman Riwayat
+Route::get('/riwayat', [TagihanController::class, 'riwayat'])->name('tagihan.riwayat');
 
-Route::post("/simpantagihan", [PaymentController::class, "simpan"])
-    ->name("tagihan.simpan");
-
-Route::post("/bayartagihan/{id}", [PaymentController::class, "bayar"])
-    ->name("tagihan.bayar");
-
-Route::get("/pay/{bill}", [PaymentController::class, "pay"]);
-
-Route::post("/midtrans/callback", [PaymentController::class, "callback"])
-    ->name("midtrans.callback");
-
-Route::get("/cekstatus/{id}", [PaymentController::class, "cekStatus"])
-    ->name("tagihan.cek-status");
-
-// ===== FITUR BARU =====
-
-// Detail Tagihan
-Route::get("/detailtagihan/{id}", [PaymentController::class, "detail"])
-    ->name("tagihan.detail");
-
-// Invoice
-Route::get("/invoice/{id}", [PaymentController::class, "invoice"])
-    ->name("tagihan.invoice");
-
-// Cetak PDF
-Route::get("/invoice/{id}/cetak", [PaymentController::class, "cetak"])
-    ->name("tagihan.cetak");
-
-// Edit Tagihan
-Route::get("/edittagihan/{id}", [PaymentController::class, "edit"])
-    ->name("tagihan.edit");
-
-// Update Tagihan
-Route::put("/updatetagihan/{id}", [PaymentController::class, "update"])
-    ->name("tagihan.update");
-
-// Hapus Tagihan
-Route::delete("/hapustagihan/{id}", [PaymentController::class, "destroy"])
-    ->name("tagihan.destroy");
-
-// Riwayat Pembayaran
-Route::get("/riwayat", [PaymentController::class, "riwayat"])
-    ->name("tagihan.riwayat");
-    

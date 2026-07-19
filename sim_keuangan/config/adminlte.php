@@ -5,12 +5,6 @@ return [
     |--------------------------------------------------------------------------
     | Title
     |--------------------------------------------------------------------------
-    |
-    | Here you can change the default title of your admin panel.
-    |
-    | For detailed instructions you can look the title section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "title" => "SIM Klinik",
@@ -21,12 +15,6 @@ return [
     |--------------------------------------------------------------------------
     | Favicon
     |--------------------------------------------------------------------------
-    |
-    | Here you can activate the favicon.
-    |
-    | For detailed instructions you can look the favicon section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "use_ico_only" => false,
@@ -36,14 +24,6 @@ return [
     |--------------------------------------------------------------------------
     | Google Fonts
     |--------------------------------------------------------------------------
-    |
-    | Here you can allow or not the use of external google fonts. Disabling the
-    | google fonts may be useful if your admin panel internet access is
-    | restricted somehow.
-    |
-    | For detailed instructions you can look the google fonts section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "google_fonts" => [
@@ -54,12 +34,6 @@ return [
     |--------------------------------------------------------------------------
     | Admin Panel Logo
     |--------------------------------------------------------------------------
-    |
-    | Here you can change the logo of your admin panel.
-    |
-    | For detailed instructions you can look the logo section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "logo" => "<b>SIM</b> Klinik",
@@ -73,13 +47,6 @@ return [
     |--------------------------------------------------------------------------
     | Authentication Logo
     |--------------------------------------------------------------------------
-    |
-    | Here you can setup an alternative logo to use on your login and register
-    | screens. When disabled, the admin panel logo will be used instead.
-    |
-    | For detailed instructions you can look the auth logo section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "auth_logo" => [
@@ -97,15 +64,6 @@ return [
     |--------------------------------------------------------------------------
     | Preloader Animation
     |--------------------------------------------------------------------------
-    |
-    | Here you can change the preloader animation configuration. Currently, two
-    | modes are supported: 'fullscreen' for a fullscreen preloader animation
-    | and 'cwrapper' to attach the preloader animation into the content-wrapper
-    | element and avoid overlapping it with the sidebars and the top navbar.
-    |
-    | For detailed instructions you can look the preloader section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "preloader" => [
@@ -124,12 +82,6 @@ return [
     |--------------------------------------------------------------------------
     | User Menu
     |--------------------------------------------------------------------------
-    |
-    | Here you can activate and change the user menu.
-    |
-    | For detailed instructions you can look the user menu section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "usermenu_enabled" => true,
@@ -143,12 +95,6 @@ return [
     |--------------------------------------------------------------------------
     | Layout
     |--------------------------------------------------------------------------
-    |
-    | Here we change the layout of your admin panel.
-    |
-    | For detailed instructions you can look the layout section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
     */
 
     "layout_topnav" => null,
@@ -162,12 +108,6 @@ return [
     |--------------------------------------------------------------------------
     | Authentication Views Classes
     |--------------------------------------------------------------------------
-    |
-    | Here you can change the look and behavior of the authentication views.
-    |
-    | For detailed instructions you can look the auth classes section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
     */
 
     "classes_auth_card" => "card-outline card-primary",
@@ -181,12 +121,6 @@ return [
     |--------------------------------------------------------------------------
     | Admin Panel Classes
     |--------------------------------------------------------------------------
-    |
-    | Here you can change the look and behavior of the admin panel.
-    |
-    | For detailed instructions you can look the admin panel classes here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
     */
 
     "classes_body" => "",
@@ -205,12 +139,6 @@ return [
     |--------------------------------------------------------------------------
     | Sidebar
     |--------------------------------------------------------------------------
-    |
-    | Here we can modify the sidebar of the admin panel.
-    |
-    | For detailed instructions you can look the sidebar section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
     */
 
     "sidebar_mini" => "lg",
@@ -227,12 +155,6 @@ return [
     |--------------------------------------------------------------------------
     | Control Sidebar (Right Sidebar)
     |--------------------------------------------------------------------------
-    |
-    | Here we can modify the right sidebar aka control sidebar of the admin panel.
-    |
-    | For detailed instructions you can look the right sidebar section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Layout-and-Styling-Configuration
-    |
     */
 
     "right_sidebar" => false,
@@ -247,12 +169,6 @@ return [
     |--------------------------------------------------------------------------
     | URLs
     |--------------------------------------------------------------------------
-    |
-    | Here we can modify the url settings of the admin panel.
-    |
-    | For detailed instructions you can look the urls section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
-    |
     */
 
     "use_route_url" => false,
@@ -269,16 +185,6 @@ return [
     |--------------------------------------------------------------------------
     | Laravel Asset Bundling
     |--------------------------------------------------------------------------
-    |
-    | Here we can enable the Laravel Asset Bundling option for the admin panel.
-    | Currently, the next modes are supported: 'mix', 'vite' and 'vite_js_only'.
-    | When using 'vite_js_only', it's expected that your CSS is imported using
-    | JavaScript. Typically, in your application's 'resources/js/app.js' file.
-    | If you are not using any of these, leave it as 'false'.
-    |
-    | For detailed instructions you can look the asset bundling section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
-    |
     */
 
     "laravel_asset_bundling" => false,
@@ -287,14 +193,8 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Menu Items
+    | Menu Items (MODIFIKASI UNTUK MODUL KEUANGAN KLINIK)
     |--------------------------------------------------------------------------
-    |
-    | Here we can modify the sidebar/top navigation of the admin panel.
-    |
-    | For detailed instructions you can look here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
-    |
     */
 
     "menu" => [
@@ -312,122 +212,33 @@ return [
         // Sidebar items:
         [
             "type" => "sidebar-menu-search",
-            "text" => "search",
+            "text" => "Cari Menu...",
         ],
         [
-            "text" => "blog",
-            "url" => "admin/blog",
-            "can" => "manage-blog",
+            "text" => "MENU KEUANGAN",
+            "heading" => true,
         ],
-        // [
-        //     'text' => 'pages',
-        //     'url' => 'admin/pages',
-        //     'icon' => 'far fa-fw fa-file',
-        //     'label' => 4,
-        //     'label_color' => 'success',
-        // ],
-        // ['header' => 'account_settings'],
         [
             "text" => "Dashboard",
             "url" => "/",
-            "icon" => "fas fa-fw fa-user",
+            "icon" => "fas fa-fw fa-tachometer-alt",
         ],
-        // [
-        //     "text" => "Mahasiswa",
-        //     "url" => "/mahasiswa",
-        //     "icon" => "fas fa-fw fa-user",
-        // ],
-        // [
-        //     "text" => "Dosen",
-        //     "url" => "/dosen",
-        //     "icon" => "fas fa-fw fa-user",
-        // ],
-        // [
-        //     "text" => "Mata Kuliah",
-        //     "url" => "/mata-kuliah",
-        //     "icon" => "fas fa-fw fa-book",
-        // ],
         [
-    "text" => "Data Pasien",
-    "url" => "/mahasiswa",
-    "icon" => "fas fa-fw fa-user-injured",
-],
+            "text" => "Transaksi Pembayaran",
+            "url" => "/tagihan",
+            "icon" => "fas fa-fw fa-credit-card",
+        ],
         [
-    "text" => "Pembayaran Klinik",
-    "url" => "/pay",
-    "icon" => "fas fa-fw fa-file-medical",
-],
-        // [
-        //     'text' => 'change_password',
-        //     'url' => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
-        // [
-        //     'text' => 'multilevel',
-        //     'icon' => 'fas fa-fw fa-share',
-        //     'submenu' => [
-        //         [
-        //             'text' => 'level_one',
-        //             'url' => '#',
-        //         ],
-        //         [
-        //             'text' => 'level_one',
-        //             'url' => '#',
-        //             'submenu' => [
-        //                 [
-        //                     'text' => 'level_two',
-        //                     'url' => '#',
-        //                 ],
-        //                 [
-        //                     'text' => 'level_two',
-        //                     'url' => '#',
-        //                     'submenu' => [
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url' => '#',
-        //                         ],
-        //                         [
-        //                             'text' => 'level_three',
-        //                             'url' => '#',
-        //                         ],
-        //                     ],
-        //                 ],
-        //             ],
-        //         ],
-        //         [
-        //             'text' => 'level_one',
-        //             'url' => '#',
-        //         ],
-        //     ],
-        // ],
-        // ['header' => 'labels'],
-        // [
-        //     'text' => 'important',
-        //     'icon_color' => 'red',
-        //     'url' => '#',
-        // ],
-        // [
-        //     'text' => 'warning',
-        //     'icon_color' => 'yellow',
-        //     'url' => '#',
-        // ],
-        // [
-        //     'text' => 'information',
-        //     'icon_color' => 'cyan',
-        //     'url' => '#',
-        // ],
+            "text" => "Riwayat Pembayaran",
+            "url" => "/riwayat",
+            "icon" => "fas fa-fw fa-history",
+        ],
     ],
 
     /*
     |--------------------------------------------------------------------------
     | Menu Filters
     |--------------------------------------------------------------------------
-    |
-    | Here we can modify the menu filters of the admin panel.
-    |
-    | For detailed instructions you can look the menu filters section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
-    |
     */
 
     "filters" => [
@@ -444,12 +255,6 @@ return [
     |--------------------------------------------------------------------------
     | Plugins Initialization
     |--------------------------------------------------------------------------
-    |
-    | Here we can modify the plugins used inside the admin panel.
-    |
-    | For detailed instructions you can look the plugins section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Plugins-Configuration
-    |
     */
 
     "plugins" => [
@@ -459,20 +264,17 @@ return [
                 [
                     "type" => "js",
                     "asset" => false,
-                    "location" =>
-                        "//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js",
+                    "location" => "//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js",
                 ],
                 [
                     "type" => "js",
                     "asset" => false,
-                    "location" =>
-                        "//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js",
+                    "location" => "//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js",
                 ],
                 [
                     "type" => "css",
                     "asset" => false,
-                    "location" =>
-                        "//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css",
+                    "location" => "//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css",
                 ],
             ],
         ],
@@ -482,14 +284,12 @@ return [
                 [
                     "type" => "js",
                     "asset" => false,
-                    "location" =>
-                        "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js",
+                    "location" => "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js",
                 ],
                 [
                     "type" => "css",
                     "asset" => false,
-                    "location" =>
-                        "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css",
+                    "location" => "//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css",
                 ],
             ],
         ],
@@ -499,8 +299,7 @@ return [
                 [
                     "type" => "js",
                     "asset" => false,
-                    "location" =>
-                        "//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js",
+                    "location" => "//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js",
                 ],
             ],
         ],
@@ -520,14 +319,12 @@ return [
                 [
                     "type" => "css",
                     "asset" => false,
-                    "location" =>
-                        "//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css",
+                    "location" => "//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/themes/blue/pace-theme-center-radar.min.css",
                 ],
                 [
                     "type" => "js",
                     "asset" => false,
-                    "location" =>
-                        "//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js",
+                    "location" => "//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js",
                 ],
             ],
         ],
@@ -537,13 +334,6 @@ return [
     |--------------------------------------------------------------------------
     | IFrame
     |--------------------------------------------------------------------------
-    |
-    | Here we change the IFrame mode configuration. Note these changes will
-    | only apply to the view that extends and enable the IFrame mode.
-    |
-    | For detailed instructions you can look the iframe mode section here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/IFrame-Mode-Configuration
-    |
     */
 
     "iframe" => [
@@ -570,12 +360,6 @@ return [
     |--------------------------------------------------------------------------
     | Livewire
     |--------------------------------------------------------------------------
-    |
-    | Here we can enable the Livewire support.
-    |
-    | For detailed instructions you can look the livewire here:
-    | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Other-Configuration
-    |
     */
 
     "livewire" => false,
